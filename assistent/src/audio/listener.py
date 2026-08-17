@@ -3,7 +3,7 @@ import sys
 import numpy as np
 import sounddevice as sd
 import torch
-import config
+import assistent.config as config
 
 class AudioListener:
     def __init__(self):

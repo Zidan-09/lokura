@@ -1,9 +1,11 @@
 import ollama
-import config
+import assistent.config as config
 
 class Brain:
     def __init__(self):
         self.model = config.OLLAMA_MODEL
+
+        self.client = ollama.Client(host=config.OLLAMA_HOST)
         
         self.conversation_history = [
             {
@@ -21,10 +23,13 @@ class Brain:
         if not prompt:
             return "O que foi? Fala logo."
 
-        self.conversation_history.append({"role": "user", "content": prompt})
+        self.conversation_history.append({
+            "role": "user",
+            "content": prompt
+        })
 
         try:
-            response = ollama.chat(
+            response = self.client.chat(
                 model=self.model,
                 messages=self.conversation_history,
                 options={
@@ -34,7 +39,10 @@ class Brain:
 
             assistant_reply = response["message"]["content"]
 
-            self.conversation_history.append({"role": "assistant", "content": assistant_reply})
+            self.conversation_history.append({
+                "role": "assistant",
+                "content": assistant_reply
+            })
 
             return assistant_reply
 

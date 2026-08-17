@@ -1,5 +1,5 @@
 import re
-import config
+import assistent.config as config
 
 def check_wake_word(text: str) -> bool:
     pattern = r'\b' + re.escape(config.WAKE_WORD) + r'\b'
