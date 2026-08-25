@@ -1,9 +1,9 @@
-import assistent.config as config
-from assistent.src.audio.listener import AudioListener
-from assistent.src.audio.stt import Transcriber
-from assistent.src.audio.tts import TextToSpeech
-from assistent.src.llm.brain import Brain
-from assistent.src.utils.wake_word import check_wake_word, extract_prompt
+import config
+from src.audio.listener import AudioListener
+from src.audio.stt import Transcriber
+from src.audio.tts import TextToSpeech
+from src.llm.brain import Brain
+from src.utils.wake_word import check_wake_word, extract_prompt
 
 def main():
     transcriber = Transcriber()

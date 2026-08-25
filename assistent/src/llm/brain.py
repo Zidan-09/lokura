@@ -1,5 +1,5 @@
 import ollama
-import assistent.config as config
+import config
 
 class Brain:
     def __init__(self):

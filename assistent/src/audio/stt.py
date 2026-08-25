@@ -1,5 +1,5 @@
 from faster_whisper import WhisperModel
-import assistent.config as config
+import config
 
 class Transcriber:
     def __init__(self):

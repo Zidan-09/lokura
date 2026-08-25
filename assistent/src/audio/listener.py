@@ -3,7 +3,7 @@ import sys
 import numpy as np
 import sounddevice as sd
 import torch
-import assistent.config as config
+import config
 
 class AudioListener:
     def __init__(self):
@@ -11,7 +11,8 @@ class AudioListener:
             repo_or_dir='snakers4/silero-vad',
             model='silero_vad',
             force_reload=False,
-            onnx=False
+            onnx=False,
+            trust_repo=True
         )
         self.audio_queue = queue.Queue()
 

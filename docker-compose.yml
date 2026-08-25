@@ -6,24 +6,11 @@ services:
         MODEL: llama3.2
     container_name: ollama-server
     ports:
-      - "11444:11444"
+      - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
     environment:
       MODEL: llama3.2
-    restart: unless-stopped
-
-  python:
-    build:
-      context: .
-      dockerfile: assistent/Dockerfile
-    container_name: lokura-ia
-    depends_on:
-      ollama:
-        condition: service_started
-    environment:
-      OLLAMA_HOST: http://ollama:11444
-      OLLAMA_MODEL: llama3.2
     restart: unless-stopped
 
 volumes:
