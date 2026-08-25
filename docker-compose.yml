@@ -6,7 +6,7 @@ services:
         MODEL: llama3.2
     container_name: ollama-server
     ports:
-      - "11434:11434"
+      - "11444:11444"
     volumes:
       - ollama_data:/root/.ollama
     environment:
@@ -15,7 +15,8 @@ services:
 
   python:
     build:
-      context: ./assistent
+      context: .
+      dockerfile: assistent/Dockerfile
     container_name: lokura-ia
     depends_on:
       ollama:
